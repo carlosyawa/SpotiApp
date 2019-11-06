@@ -1,0 +1,15 @@
+<div class="forma">
+    <input [(ngModel)]="searchModel" type="text">
+    <button (click)="buscarArtista()">Buscar</button>
+</div>
+
+
+<div *ngIf="searchingResponse">
+    <h5>Se encontraron los siguientes artistas:</h5>
+    <div *ngFor="let artist of searchingResponse.artists.items">
+        <b>{{artist.name}}</b>
+
+
+        <button (click)="showDetails(artist)" [routerLink]="['/principal/detalles',artist.id]">Ver Detalles</button>
+    </div>
+</div>

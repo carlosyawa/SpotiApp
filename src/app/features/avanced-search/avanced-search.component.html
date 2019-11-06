@@ -1,0 +1,20 @@
+<form [formGroup]="formGroupSpoty">
+
+    <input formControlName="artist" 
+    [ngClass]="{'is-invalid': !formGroupSpoty.controls.artist.valid && formGroupSpoty.controls.artist.touched, 
+    'is-valid': formGroupSpoty.controls.artist.valid}" type="text" class="form-control">
+
+    <div *ngIf="!formGroupSpoty.controls.artist.valid && formGroupSpoty.controls.artist.touched" class="alert alert-danger">
+        <strong>Espera!</strong> Necesitas al menos 4 caracteres.
+    </div>
+
+    <input formControlName="album" [ngClass]="{'is-invalid': !formGroupSpoty.controls.album.valid && formGroupSpoty.controls.album.touched, 
+    'is-valid': formGroupSpoty.controls.album.valid}" type="text" class="form-control">
+
+    <div *ngIf="!formGroupSpoty.controls.album.valid && formGroupSpoty.controls.album.touched" class="alert alert-danger">
+        <strong>Espera!</strong> Son demasiados caracteres.
+    </div>
+</form>
+
+<button (click)="search()" [disabled]="formGroupSpoty.invalid"> Buscar </button>
+<br>

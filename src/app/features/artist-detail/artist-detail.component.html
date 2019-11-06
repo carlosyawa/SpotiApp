@@ -1,0 +1,24 @@
+<div *ngIf="artist">
+  <p>{{artist.name}}</p>
+
+  <div class="row">
+    <div class="col-4">
+      <img width="200px" [src]="artist.images[0].url" alt="">
+    </div>
+    <div class="col-4">
+      Seguidores : {{artist.followers.total}}
+    </div>
+    <div class="col-4">
+      <div *ngFor="let genre of artist.genres">
+        <li>{{genre}}</li>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div *ngIf="albums">
+  <div *ngFor="let album of albums.items">
+        <img width="100px" [src]="album.images[0].url" alt="">
+  </div>
+</div>
